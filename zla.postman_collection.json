@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "9a54b719-c9f0-4a26-8c4c-9f55d665f9ee",
-		"name": "zla Copy",
+		"_postman_id": "7176c87b-654f-4a70-acfe-1f7080965350",
+		"name": "zla",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -410,7 +410,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"mobile\":\"01114164668\",\n\"password\":\"12345678\",\n\"password_confirmation\":\"12345678\",\n\"name\":\"ahmed awad\",\n\"email\":\"ahmedawad1811@gmail.com\",\n\"status\":1,\n\"gender\":0\n}"
+									"raw": "{\n\"mobile\":\"01114164668\",\n\"password\":\"12345678\",\n\"password_confirmation\":\"12345678\",\n\"name\":\"ahmed awad\",\n\"email\":\"ahmedawad1811@gmail.com\",\n\"gender\":0\n}"
 								},
 								"url": {
 									"raw": "{{url}}register",
@@ -575,9 +575,15 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{url}}acceptedMobile",
+									"raw": "{{url}}acceptedMobile?mobile=01114164668",
 									"host": [
 										"{{url}}acceptedMobile"
+									],
+									"query": [
+										{
+											"key": "mobile",
+											"value": "01114164668"
+										}
 									]
 								}
 							},
@@ -600,7 +606,13 @@
 								"header": [],
 								"body": {
 									"mode": "formdata",
-									"formdata": []
+									"formdata": [
+										{
+											"key": "otp",
+											"value": "79431",
+											"type": "text"
+										}
+									]
 								},
 								"url": {
 									"raw": "{{url}}resetValidateOtp",
@@ -621,26 +633,20 @@
 									"formdata": [
 										{
 											"key": "mobile",
-											"value": "01021909923",
+											"value": "01114164668",
 											"type": "text"
 										},
 										{
 											"key": "otp",
-											"value": "269935",
+											"value": "36073",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}validateOtp?",
+									"raw": "{{url}}validateOtp",
 									"host": [
 										"{{url}}validateOtp"
-									],
-									"query": [
-										{
-											"key": "",
-											"value": ""
-										}
 									]
 								}
 							},
@@ -661,6 +667,16 @@
 								},
 								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "new_mobile",
+											"value": "01114164666",
+											"type": "text"
+										}
+									]
+								},
 								"url": {
 									"raw": "{{url}}acceptedResetMobile",
 									"host": [
@@ -669,92 +685,6 @@
 								}
 							},
 							"response": []
-						}
-					]
-				},
-				{
-					"name": "promoCodes",
-					"item": [
-						{
-							"name": "all",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "{{token}}",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{url}}promoCodes",
-									"host": [
-										"{{url}}promoCodes"
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "all",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{url}}promoCodes",
-											"host": [
-												"{{url}}promoCodes"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Wed, 24 Feb 2021 15:59:21 GMT"
-										},
-										{
-											"key": "Server",
-											"value": "Apache/2.4.41 (Ubuntu)"
-										},
-										{
-											"key": "Vary",
-											"value": "Authorization"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, private"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "Content-Length",
-											"value": "139"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5, max=100"
-										},
-										{
-											"key": "Connection",
-											"value": "Keep-Alive"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "[\n    {\n        \"id\": 3,\n        \"type\": 1,\n        \"code\": \"JFE8d8\",\n        \"reward\": 21\n    },\n    {\n        \"id\": 4,\n        \"type\": 1,\n        \"code\": \"xNZ5Di\",\n        \"reward\": 21\n    },\n    {\n        \"id\": 5,\n        \"type\": 1,\n        \"code\": \"138vh8\",\n        \"reward\": 40\n    }\n]"
-								}
-							]
 						}
 					]
 				},
@@ -787,6 +717,155 @@
 							"raw": "{{url}}updateProfile",
 							"host": [
 								"{{url}}updateProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changePassword",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "old_password",
+									"value": "123456789s",
+									"type": "text"
+								},
+								{
+									"key": "change",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}changePassword?",
+							"host": [
+								"{{url}}changePassword"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ForgetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile",
+									"value": "01114164668",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}forgetPassword",
+							"host": [
+								"{{url}}forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AcceptedForgetPassowed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile",
+									"value": "01114164668",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}acceptedForgetPassword",
+							"host": [
+								"{{url}}acceptedForgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validateForgetPasswordOtp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "mobile",
+									"value": "01114164668",
+									"type": "text"
+								},
+								{
+									"key": "otp",
+									"value": "99172",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}validateForgetPasswordOtp?",
+							"host": [
+								"{{url}}validateForgetPasswordOtp"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
 							]
 						}
 					},
@@ -1113,140 +1192,6 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"zone_id\":1,\n    \"promo_code_id\":3,\n    \"item_list\":[\n        {\n            \"category_item_service_id\":1,\n            \"quantity\":2\n        },\n        {\n            \"category_item_service_id\":2,\n            \"quantity\":5\n        }\n    ]\n}"
-								},
-								"url": {
-									"raw": "{{url}}orders/calculateTotal",
-									"host": [
-										"{{url}}orders"
-									],
-									"path": [
-										"calculateTotal"
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 02 Mar 2021 16:14:07 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "Apache/2.4.41 (Ubuntu)"
-								},
-								{
-									"key": "Vary",
-									"value": "Authorization"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Length",
-									"value": "14"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"errors\": [\n        2\n    ]\n}"
-						},
-						{
-							"name": "calculateTotal",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"zone_id\":1,\n    \"promo_code_id\":3,\n    \"item_list\":[\n        {\n            \"category_item_service_id\":1,\n            \"quantity\":2\n        },\n        {\n            \"category_item_service_id\":2,\n            \"quantity\":5\n        }\n    ]\n}"
-								},
-								"url": {
-									"raw": "{{url}}orders/calculateTotal",
-									"host": [
-										"{{url}}orders"
-									],
-									"path": [
-										"calculateTotal"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 02 Mar 2021 16:12:07 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "Apache/2.4.41 (Ubuntu)"
-								},
-								{
-									"key": "Vary",
-									"value": "Authorization"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "Content-Length",
-									"value": "175"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5, max=100"
-								},
-								{
-									"key": "Connection",
-									"value": "Keep-Alive"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"total\": 198,\n    \"discount\": 25,\n    \"delivery_fees\": 0,\n    \"items\": [\n        {\n            \"category_item_service_id\": 1,\n            \"quantity\": 2,\n            \"price\": \"49.00\"\n        },\n        {\n            \"category_item_service_id\": 2,\n            \"quantity\": 5,\n            \"price\": \"20.00\"\n        }\n    ]\n}"
-						},
-						{
-							"name": "calculateTotal",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
 									"raw": "{\n    \"zone_id\":1,\n    \"promo_code_id\":3,\n    \"item_ldist\":[\n        {\n            \"category_item_service_id\":1,\n            \"quantity\":2\n        },\n        {\n            \"category_item_service_id\":2,\n            \"quantity\":5\n        }\n    ]\n}"
 								},
 								"url": {
@@ -1298,6 +1243,71 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"errors\": [\n        1\n    ]\n}"
+						},
+						{
+							"name": "calculateTotal",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"zone_id\":1,\n    \"promo_code_id\":3,\n    \"item_list\":[\n        {\n            \"category_item_service_id\":1,\n            \"quantity\":2\n        },\n        {\n            \"category_item_service_id\":2,\n            \"quantity\":5\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{url}}orders/calculateTotal",
+									"host": [
+										"{{url}}orders"
+									],
+									"path": [
+										"calculateTotal"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 16:14:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": [\n        2\n    ]\n}"
 						}
 					]
 				},
@@ -1329,7 +1339,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"promo_code_id\":1,\n   \"address_customer_id\":1,\n   \"zone_id\":1,\n   \"payment_method_id\":1,\n   \"total\":200.5 ,\n   \"pick_time_slot_id\":1,\n   \"pick_date\":\"2021-02-25\",\n   \"deliver_time_slot_id\":2,\n   \"deliver_date\":\"2021-02-26\",\n   \"items\": [\n        {\n            \"category_item_service_id\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"category_item_service_id\": 2,\n            \"quantity\": 5\n        }\n    ],\n    \"preferences\":[\n        {\n            \"item_id\":1,\n            \"preference_id\":1\n        },\n        {\n            \"item_id\":2,\n            \"preference_id\":1\n        }\n    ]\n}"
+							"raw": "{\n    \"promo_code_id\":3,\n   \"address_customer_id\":1,\n   \"zone_id\":1,\n   \"payment_method_id\":1,\n   \"total\":281 ,\n   \"pick_time_slot_id\":1,\n   \"pick_date\":\"2021-02-25\",\n   \"deliver_time_slot_id\":2,\n   \"deliver_date\":\"2021-02-25\",\n   \"item_list\": [\n        {\n            \"category_item_service_id\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"category_item_service_id\": 2,\n            \"quantity\": 5\n        }\n    ],\n    \"preferences\":[\n        {\n            \"item_id\":1,\n            \"preference_id\":1\n        },\n        {\n            \"item_id\":2,\n            \"preference_id\":1\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{url}}orders",
@@ -1648,6 +1658,111 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"status\": true\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "time slots",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}timeSlots",
+							"host": [
+								"{{url}}timeSlots"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "promoCodes",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}promoCodes",
+							"host": [
+								"{{url}}promoCodes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}promoCodes",
+									"host": [
+										"{{url}}promoCodes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 24 Feb 2021 15:59:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.41 (Ubuntu)"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"type\": 1,\n        \"code\": \"JFE8d8\",\n        \"reward\": 21\n    },\n    {\n        \"id\": 4,\n        \"type\": 1,\n        \"code\": \"xNZ5Di\",\n        \"reward\": 21\n    },\n    {\n        \"id\": 5,\n        \"type\": 1,\n        \"code\": \"138vh8\",\n        \"reward\": 40\n    }\n]"
 						}
 					]
 				}
