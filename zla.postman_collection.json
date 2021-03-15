@@ -111,11 +111,16 @@
 										"key": "Content-Type",
 										"value": "application/json",
 										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"default\":1,\n    \"zone_id\":1,\n    \"title\":\"home sexond time update\",\n    \"floor\":3,\n    \"building\":5,\n    \"flat\":4,\n    \"compound\":\"beverly\",\n    \"landmark\":\"beside west town hub\",\n    \"street\":\"saad moahmed street\",\n    \"long\":15466,\n    \"lat\":1.565665665\n}"
+									"raw": "{\n      \"default\": 1,\n      \"zone_id\": 1,\n      \"title\": \"home sexond time update\",\n      \"floor\": 3,\n      \"building\": 5,\n      \"flat\": 4,\n      \"compound\": \"beverly\",\n      \"landmark\": \"beside west town hub\",\n      \"street\": \"saad moahmed street\",\n      \"long\": 15466,\n      \"lat\": 1.565665665\n    }"
 								},
 								"url": {
 									"raw": "{{url}}addresses",
@@ -638,7 +643,7 @@
 										},
 										{
 											"key": "otp",
-											"value": "36073",
+											"value": "65919",
 											"type": "text"
 										}
 									]
@@ -711,7 +716,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\":\"new name\",\n    \"email\":\"new email\"\n}"
+							"raw": "{\n    \"name\":\"new name\",\n    \"email\":\"ahmedawad181a1@gmail.com\",\n    \"push_notifications\":false\n}"
 						},
 						"url": {
 							"raw": "{{url}}updateProfile",
@@ -771,7 +776,7 @@
 							"query": [
 								{
 									"key": "",
-									"value": null
+									"value": ""
 								}
 							]
 						}
@@ -864,7 +869,7 @@
 							"query": [
 								{
 									"key": "",
-									"value": null
+									"value": ""
 								}
 							]
 						}
