@@ -1274,7 +1274,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"zone_id\":1,\n    \"promo_code_id\":3,\n    \"item_list\":[\n        {\n            \"category_item_service_id\":1,\n            \"quantity\":2\n        },\n        {\n            \"category_item_service_id\":2,\n            \"quantity\":5\n        }\n    ]\n}"
+							"raw": "{\n    \"zone_id\":1,\n    \"promo_code_id\":1,\n    \"item_list\":[\n        {\n            \"category_item_service_id\":1,\n            \"quantity\":2\n        },\n        {\n            \"category_item_service_id\":2,\n            \"quantity\":5\n        }\n    ]\n}"
 						},
 						"url": {
 							"raw": "{{url}}orders/calculateTotal",
@@ -1447,7 +1447,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"promo_code_id\":3,\n   \"address_customer_id\":1,\n   \"zone_id\":1,\n   \"payment_method_id\":1,\n   \"total\":93 ,\n   \"pick_time_slot_id\":1,\n   \"pick_date\":\"2021-02-25\",\n   \"deliver_time_slot_id\":2,\n   \"deliver_date\":\"2021-02-25\",\n   \"item_list\": [\n        {\n            \"category_item_service_id\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"category_item_service_id\": 2,\n            \"quantity\": 5\n        }\n    ],\n    \"preferences\":[\n        {\n            \"item_id\":1,\n            \"preference_id\":1\n        },\n        {\n            \"item_id\":2,\n            \"preference_id\":1\n        }\n    ],\n    \"comment\":\"some comment\"\n}"
+							"raw": "{\n    \"promo_code_id\":3,\n    \"asap\":true,\n   \"address_customer_id\":1,\n   \"zone_id\":1,\n   \"payment_method_id\":1,\n   \"total\":306 ,\n   \"pick_time_slot_id\":1,\n   \"pick_date\":\"2021-02-25\",\n   \"deliver_time_slot_id\":2,\n   \"deliver_date\":\"2021-02-25\",\n   \"service_names\":[\"name1\", \"name2\"],\n   \"item_list\": [\n        {\n            \"category_item_service_id\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"category_item_service_id\": 2,\n            \"quantity\": 5\n        }\n    ],\n    \"preferences\":[\n        {\n            \"item_id\":1,\n            \"preference_id\":1\n        },\n        {\n            \"item_id\":2,\n            \"preference_id\":1\n        }\n    ],\n    \"comment\":\"some comment\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}orders",
@@ -1576,12 +1576,27 @@
 								"key": "format-locale",
 								"value": "en",
 								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{url}}orders",
+							"raw": "{{url}}orders?page=1&classification=active",
 							"host": [
 								"{{url}}orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "classification",
+									"value": "active"
+								}
 							]
 						}
 					},
@@ -1595,12 +1610,27 @@
 										"key": "format-locale",
 										"value": "en",
 										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{url}}orders",
+									"raw": "{{url}}orders?page=1&classification=active",
 									"host": [
 										"{{url}}orders"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "classification",
+											"value": "active"
+										}
 									]
 								}
 							},
@@ -1610,7 +1640,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Mon, 22 Feb 2021 14:34:27 GMT"
+									"value": "Wed, 17 Mar 2021 16:00:18 GMT"
 								},
 								{
 									"key": "Server",
@@ -1630,11 +1660,11 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "237"
+									"value": "524"
 								},
 								{
 									"key": "Keep-Alive",
-									"value": "timeout=5, max=96"
+									"value": "timeout=5, max=100"
 								},
 								{
 									"key": "Connection",
@@ -1646,7 +1676,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"rate\": null,\n        \"status\": \"CREATED\",\n        \"classification\": \"active\",\n        \"created_at\": \"2021-02-22T14:08:32.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"rate\": null,\n        \"status\": \"orderStatuses.finished\",\n        \"classification\": \"delivered\",\n        \"created_at\": \"2021-02-22T14:08:33.000000Z\"\n    }\n]"
+							"body": "{\n    \"last_page\": 1,\n    \"orders\": [\n        {\n            \"id\": 2,\n            \"rate\": null,\n            \"status\": \"CREATED\",\n            \"created_at\": \"2021-03-17T12:37:05.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"rate\": null,\n            \"status\": \"CREATED\",\n            \"created_at\": \"2021-03-17T12:38:12.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"rate\": null,\n            \"status\": \"CREATED\",\n            \"created_at\": \"2021-03-17T13:26:49.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"rate\": null,\n            \"status\": \"CREATED\",\n            \"created_at\": \"2021-03-17T13:27:23.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"rate\": null,\n            \"status\": \"CREATED\",\n            \"created_at\": \"2021-03-17T13:27:45.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"rate\": null,\n            \"status\": \"CREATED\",\n            \"created_at\": \"2021-03-17T15:59:37.000000Z\"\n        }\n    ]\n}"
 						}
 					]
 				},
